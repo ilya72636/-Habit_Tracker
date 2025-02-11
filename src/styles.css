@@ -14,14 +14,14 @@ body {
   align-items: center;
   height: 100vh;
   transition: background-color 0.3s ease;
-  padding: 20px; /* Уменьшено пространство вокруг */
+  padding: 20px;
 }
 
 /* Основной контейнер */
 .app-container {
   padding: 20px;
   background: linear-gradient(135deg, #ffeb3b, #4caf50); /* Яркий градиент */
-  border-radius: 15px; /* Уменьшено скругление */
+  border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 900px; /* Ограничена максимальная ширина */
@@ -40,20 +40,20 @@ body {
 /* Контейнер для таблицы с прокруткой */
 .habit-table-wrapper {
   width: 100%;
-  max-height: 400px; /* Ограничение по высоте */
+  max-height: 400px;
   overflow-y: auto;  /* Включаем вертикальный скролл */
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* Таблица */
 .habit-table {
   width: 100%;
   border-collapse: collapse;
-  /* Теперь не нужно задавать фиксированную высоту для таблицы */
 }
 
 .habit-table th, .habit-table td {
-  padding: 10px; /* Уменьшены отступы */
+  padding: 10px;
   text-align: center;
   border: 1px solid #ddd;
 }
@@ -66,10 +66,10 @@ body {
 /* Колонка Привычка */
 .habit-table td.habit-name {
   width: 150px; /* Увеличена ширина колонки "Привычка" */
-  text-align: left; /* Для лучшего отображения текста */
-  white-space: nowrap; /* Текст не будет переноситься */
-  overflow: hidden; /* Обрезать текст, если не помещается */
-  text-overflow: ellipsis; /* Добавить многоточие, если текст не вмещается */
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Чекбоксы */
@@ -88,13 +88,12 @@ body {
 }
 
 .habit-checkbox:hover {
-  transform: scale(1.2); /* Увеличение при наведении */
+  transform: scale(1.2);
 }
 
 /* Ввод текста */
 .habit-input {
-  /* width: 100%; */
-  max-width: 150px; /* Уменьшена максимальная ширина */
+  max-width: 150px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -119,43 +118,161 @@ body {
 }
 
 /* Адаптивность */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .app-container {
-      width: 100%;
-      padding: 15px;
+      width: 90%; /* Слегка уменьшена ширина для больших экранов */
+      padding: 20px;
+      max-width: 900px; /* Ограничена максимальная ширина */
+      margin: 0 auto; /* Центрируем контейнер */
+      overflow-x: auto; /* Включаем горизонтальный скролл, если нужно */
+  }
+
+  .habit-table-wrapper {
+      max-height: 400px; /* Ограничена высота контейнера */
+      overflow-y: auto; /* Вертикальный скролл для таблицы */
+      overflow-x: auto; /* Горизонтальный скролл для таблицы */
   }
 
   .habit-table th, .habit-table td {
-      padding: 8px; /* Меньше отступов для маленьких экранов */
-      font-size: 0.9rem; /* Уменьшение шрифта */
-  }
-
-  .habit-input {
-      max-width: 120px; /* Уменьшена ширина поля */
+      padding: 12px; /* Паддинги для лучшего отображения */
+      font-size: 1rem;
+      word-wrap: break-word; /* Разрываем длинные слова */
   }
 
   .habit-checkbox {
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
+  }
+
+  .habit-input {
+      max-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+      width: 100%;
+      padding: 20px;
+      max-width: none; /* Убираем ограничение ширины */
+      margin: 0 auto;
+  }
+
+  .habit-table-wrapper {
+      max-height: 350px; /* Ограничена высота таблицы */
+      overflow-y: auto; /* Вертикальный скролл */
+      overflow-x: auto; /* Горизонтальный скролл для таблицы */
+  }
+
+  .habit-table th, .habit-table td {
+      padding: 10px;
+      font-size: 0.9rem;
+  }
+
+  .habit-checkbox {
+      width: 25px;
+      height: 25px;
+  }
+
+  .habit-input {
+      max-width: 160px;
+  }
+
+  .header {
+      font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-container {
+      width: 100%;
+      padding: 15px;
+      max-width: 100%;
+  }
+
+  .habit-table-wrapper {
+      max-height: 300px; /* Ограничена высота для маленьких экранов */
+      overflow-y: auto;
+      overflow-x: auto; /* Добавлен горизонтальный скролл */
+  }
+
+  .habit-table th, .habit-table td {
+      padding: 8px;
+      font-size: 0.8rem;
+  }
+
+  .habit-checkbox {
+      width: 22px;
+      height: 22px;
+  }
+
+  .habit-input {
+      max-width: 140px;
+  }
+
+  .header {
+      font-size: 1.4rem;
   }
 }
 
 @media (max-width: 480px) {
-  .header {
-      font-size: 1.5rem;
+  .app-container {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .habit-table-wrapper {
+      max-height: 250px; /* Ограничена высота таблицы */
+      overflow-y: auto;
+      overflow-x: auto; /* Горизонтальный скролл */
   }
 
   .habit-table th, .habit-table td {
-      padding: 5px; /* Очень маленькие отступы */
-      font-size: 0.8rem; /* Еще меньше шрифт */
-  }
-
-  .habit-input {
-      max-width: 100px; /* Уменьшена максимальная ширина */
+      padding: 6px;
+      font-size: 0.75rem;
   }
 
   .habit-checkbox {
       width: 18px;
       height: 18px;
+  }
+
+  .habit-input {
+      max-width: 120px;
+  }
+
+  .header {
+      font-size: 1.3rem;
+  }
+}
+
+/* Для самых маленьких экранов (в том числе телефоны в портретной ориентации) */
+@media (max-width: 360px) {
+  .app-container {
+      padding: 8px;
+      width: 100%;
+  }
+
+  .habit-table-wrapper {
+      max-height: 200px; /* Еще меньше высота для очень маленьких экранов */
+      overflow-y: auto;
+      overflow-x: auto; /* Горизонтальный скролл */
+  }
+
+  .habit-table th, .habit-table td {
+      padding: 5px;
+      font-size: 0.7rem;
+  }
+
+  .habit-checkbox {
+      width: 16px;
+      height: 16px;
+  }
+
+  .habit-input {
+      max-width: 100px;
+  }
+
+  .header {
+      font-size: 1.2rem;
   }
 }
