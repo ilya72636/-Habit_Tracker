@@ -15,22 +15,18 @@ body {
   height: 100vh;
   transition: background-color 0.3s ease;
   padding: 20px; /* Уменьшено пространство вокруг */
-  padding-top: 30px; /* Уменьшен отступ сверху */
-  padding-bottom: 30px; /* Уменьшен отступ снизу */
 }
 
 /* Основной контейнер */
 .app-container {
-  padding: 5px;
+  padding: 20px;
   background: linear-gradient(135deg, #ffeb3b, #4caf50); /* Яркий градиент */
   border-radius: 15px; /* Уменьшено скругление */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 800px; /* Немного уменьшена максимальная ширина */
+  max-width: 900px; /* Ограничена максимальная ширина */
   text-align: center;
   overflow: hidden;
-  height: auto; /* Даем контейнеру гибкость по высоте */
-  max-height: 700px; /* Ограничиваем максимальную высоту контейнера */
 }
 
 /* Заголовок */
@@ -41,21 +37,23 @@ body {
   color: #2c6e49;
 }
 
-/* Контейнер для таблицы */
+/* Контейнер для таблицы с прокруткой */
 .habit-table-wrapper {
   width: 100%;
-  overflow-x: auto;
+  max-height: 400px; /* Ограничение по высоте */
+  overflow-y: auto;  /* Включаем вертикальный скролл */
+  margin-top: 20px;
 }
 
 /* Таблица */
 .habit-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  /* Теперь не нужно задавать фиксированную высоту для таблицы */
 }
 
 .habit-table th, .habit-table td {
-  padding: 8px; /* Уменьшены отступы */
+  padding: 10px; /* Уменьшены отступы */
   text-align: center;
   border: 1px solid #ddd;
 }
@@ -95,6 +93,7 @@ body {
 
 /* Ввод текста */
 .habit-input {
+  /* width: 100%; */
   max-width: 150px; /* Уменьшена максимальная ширина */
   padding: 8px;
   border: 1px solid #ccc;
